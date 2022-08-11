@@ -8,6 +8,20 @@
 // Example:
 //   fib(4) === 3
 
+function memoize(fn) {
+    const cache = {};
+
+    return function(...arguments) {
+        if (cache[arguments]) {
+            return cache[arguments];
+        }
+
+        const result = fn.apply(this, arguments);
+        cache[arguments] = result;
+
+        return result;
+    };
+}
 
 function fib(n) {
     if (n < 2) {
@@ -16,6 +30,8 @@ function fib(n) {
 
     return fib(n - 1) + fib(n - 2);
 }
+
+const fibonacci = memoize(fib);
 
 // function fib(n) {
 //     const result = [0, 1];

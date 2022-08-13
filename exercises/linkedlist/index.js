@@ -31,8 +31,8 @@ class LinkedList {
     }
 
      getFirst() {
-    return this.head;
-  }
+        return this.head;
+    }
 
     getLast() {
         if (!this.head) {
@@ -142,6 +142,17 @@ class LinkedList {
         } else {
             // The chain is empty!
             this.head = new Node(data);
+        }
+    }
+
+    forEach(fn) {
+        let node = this.head;
+        let counter = 0;
+
+        while (node) {
+            fn(node, counter);
+            node = node.next;
+            counter++;
         }
     }
 }

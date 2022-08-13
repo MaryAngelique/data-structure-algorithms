@@ -15,10 +15,33 @@ class Node {
         this.data = data;
         this.children = [];
     }
+
+    add(data) {
+        const node = new Node(data);
+        this.children.push(new Node(data));
+    }
+    
+    remove(data) {
+        this.children.filter(node => {
+            return node.data !== data;
+        })
+    }
 }
 
 class Tree {
+    constructor() {
+        this.root = null;
+    }
 
+    tranverseBR(fn) {
+        const arr = [this.root];
+        while (arr.length) {
+            const node = arr.shift();
+
+            arr.push(...node.children);
+            fn(node);
+        }
+    }
 }
 
 module.exports = { Tree, Node };

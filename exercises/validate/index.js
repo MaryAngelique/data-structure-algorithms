@@ -21,6 +21,8 @@ function validate(node, min = null, max = null) {
     if (node.right && !validate(node.right, node.data, max)) {
         return false;
     }
+
+    return true;
 }
 
 module.exports = validate;

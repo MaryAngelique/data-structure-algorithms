@@ -6,7 +6,7 @@ function bubbleSort(arr) {
         for (let j = 0; j < (arr.length - i - 1); j++) {
             if (arr[j] > arr[j+1]) {
                 const lesser = arr[j+1];
-                
+
                 arr[j+1] = arr[j];
                 arr[j] = lesser;
             }
@@ -58,9 +58,9 @@ function merge(left, right) {
         } else {
             results.push(right.shift());
         }
-  }
+    }
 
-  return [...results, ...left, ...right];
+    return [...results, ...left, ...right];
 }
 
 module.exports = { bubbleSort, selectionSort, mergeSort, merge };
